@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden - Authentic Indian Cuisine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1> &#127798;&#65039; Spice Garden</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="foodSearch" placeholder="Search food items...">
+                <button type="button" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order">Order Online</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="nav-auth-item"><a href="login.html">Login</a></li>
+                <li class="cart-icon">
+                    <a href="#cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Experience Authentic Indian Flavors</h2>
+            <p>Traditional recipes passed down through generations</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">View Our Menu</a>
+                <a href="#order" class="btn-secondary">Order Online</a>
+                <a href="#reservation" class="btn-tertiary">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Welcome to Spice Garden, where traditional Indian cuisine meets modern dining experience.
+                        Established in 2010, we have been serving authentic flavors from across India for over 15 years.
+                    </p>
+                    <p>Our chefs use time-honored recipes and the finest spices to create dishes that transport you to
+                        the streets of Delhi, Mumbai, and beyond.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Fresh Ingredients</h3>
+                            <p>Locally sourced, organic produce</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user-cog"></i>
+                            <h3>Expert Chefs</h3>
+                            <p>Trained in traditional Indian cooking</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Award Winning</h3>
+                            <p>Best Indian Restaurant 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <div class="about-img img-1">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500"
+                            alt="Restaurant Interior">
+                    </div>
+                    <div class="about-img img-2">
+                        <img src="https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="food">
+                    </div>
+                    <div class="about-img img-3">
+                        <img src="https://plus.unsplash.com/premium_photo-1687697861242-03e99059e833?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Chef Cooking">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-subtitle">Discover our carefully curated dishes</p>
+
+            <div class="menu-filters">
+                <div class="filter-group">
+                    <button class="filter-btn" data-type="veg"> Veg</button>
+                    <button class="filter-btn" data-type="nonveg"> Non-Veg</button>
+                </div>
+                <div class="filter-group">
+                    <button class="category-btn active" data-category="all">All Categories</button>
+                    <button class="category-btn" data-category="starters">Starters</button>
+                    <button class="category-btn" data-category="main">Main Course</button>
+                    <button class="category-btn" data-category="breads">Breads</button>
+                    <button class="category-btn" data-category="desserts">Desserts</button>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menu-grid-container">
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2>Order Online</h2>
+            <p class="section-subtitle">Get your favorite dishes delivered to your doorstep</p>
+
+            <div class="order-grid">
+                <div class="order-info">
+                    <h3>How It Works</h3>
+                    <div class="order-steps">
+                        <div class="step">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h4>1. Choose Your Dishes</h4>
+                            <p>Browse our menu and add items to cart</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>2. Enter Delivery Details</h4>
+                            <p>Provide your delivery address in Ajmer</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-rupee-sign"></i>
+                            <h4>3. Make Payment</h4>
+                            <p>Pay online or choose cash on delivery</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-motorcycle"></i>
+                            <h4>4. Enjoy Your Meal</h4>
+                            <p>Hot food delivered in 30-45 minutes</p>
+                        </div>
+                    </div>
+                    <div class="delivery-info">
+                        <p><i class="fas fa-clock"></i> Delivery Time: 30-45 mins</p>
+                        <p><i class="fas fa-shipping-fast"></i> Delivery Fee: ₹40 (Free above ₹500)</p>
+                        <p><i class="fas fa-map-pin"></i> Delivery Area: Ajmer & Surrounding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-amount">₹0</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3>Checkout</h3>
+                <button class="close-checkout">&times;</button>
+            </div>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="checkout-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="checkout-phone" required placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea id="checkout-address" required placeholder="Enter complete address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select id="checkout-payment" required>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="online">Online Payment (UPI/Card)</option>
+                    </select>
+                </div>
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div class="summary-items"></div>
+                    <div class="summary-total">
+                        <span>Total Amount:</span>
+                        <span class="final-total">₹0</span>
+                    </div>
+                </div>
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <p class="section-subtitle">Real reviews from food lovers</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best Butter Chicken in Ajmer! The flavors are authentic and remind me of my trips to Delhi.
+                        Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+                        <div>
+                            <h4>Rajesh Kumar</h4>
+                            <p>Food Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Amazing service and delicious food! The delivery was quick and the packaging kept everything
+                        fresh. Will order again!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Biryani is out of this world! Perfect spices and the meat is so tender. Best Indian
+                        restaurant in town!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Customer">
+                        <div>
+                            <h4>Amit Verma</h4>
+                            <p>Local Foodie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="reservation">
+        <div class="container">
+            <h2>Book a Table</h2>
+            <p class="section-subtitle">Reserve your spot for an unforgettable dining experience</p>
+
+            <div class="reservation-content">
+                <div class="reservation-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 MG Road, Ajmer, Rajasthan 305001</p>
+                        <p><i class="fas fa-phone"></i> +91 8824940877</p>
+                        <p><i class="fas fa-envelope"></i> info@spicegarden.com</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sun: 11:00 AM - 11:00 PM</p>
+                    </div>
+                </div>
+                <form class="reservation-form" id="reservationForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" required placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder="Email Address">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="guests" required>
+                            <option value="">Number of Guests</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="3" placeholder="Special Requests (Optional)"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Confirm Reservation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p> &#128205; 123 MG Road<br>Ajmer, Rajasthan 305001<br>India</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Hours</h3>
+                    <p>Mon - Sun: 11:00 AM - 11:00 PM<br>Happy Hour: 4:00 PM - 7:00 PM</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Contact</h3>
+                    <p>Phone: +91 8824940877<br>info@spicegarden.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>&#127798;&#65039; Spice Garden</h3>
+                    <p>Authentic Indian cuisine since 2010. Experience the taste of tradition with every bite.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://whatsapp.com" target="_blank" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#order">Order Online</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Dine-in</a></li>
+                        <li><a href="#">Takeaway</a></li>
+                        <li><a href="#">Home Delivery</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Events & Parties</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Spice Garden. All rights reserved.</p>
+                    <p>Made with LOVE in Ajmer, Rajasthan</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="change-password-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Change Password</h3>
+                <button class="close-modal" id="close-password-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="old-password">Old Password</label>
+                        <input type="password" id="old-password" required placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required
+                            placeholder="Enter new password (min. 8 chars)">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" required placeholder="Confirm new password">
+                    </div>
+                    <p id="password-change-error" class="error-msg"
+                        style="color:red; font-size: 0.85rem; margin-top: 5px;"></p>
+                    <button type="submit" class="btn-modal-submit" style="width: 100%; margin-top: 10px;">Update
+                        Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

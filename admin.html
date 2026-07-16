@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>&#127798;&#65039; Spice Garden</h2>
+                <span>Admin Panel</span>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="menu-item active" data-target="overview">
+                        <a href="javascript:void(0)"><i class="fas fa-chart-line"></i> Overview</a>
+                    </li>
+                    <li class="menu-item" data-target="menu-manager">
+                        <a href="javascript:void(0)"><i class="fas fa-utensils"></i> Menu Manager</a>
+                    </li>
+                    <li class="menu-item" data-target="orders">
+                        <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> Orders <span class="badge"
+                                id="badge-orders">0</span></a>
+                    </li>
+                    <li class="menu-item" data-target="reservations">
+                        <a href="javascript:void(0)"><i class="fas fa-calendar-check"></i> Reservations <span
+                                class="badge" id="badge-reservations">0</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn-goto-site"><i class="fas fa-globe"></i> View Website</a>
+                <button class="btn-logout" id="admin-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1 id="page-title">Overview</h1>
+                    <p id="page-subtitle">Welcome back, Admin! Here is the latest stats summary.</p>
+                </div>
+                <div class="admin-profile">
+                    <div class="avatar"><i class="fas fa-user-shield"></i></div>
+                    <div class="profile-info">
+                        <h4>Admin User</h4>
+                        <span>Manager</span>
+                    </div>
+                </div>
+            </header>
+
+            <section id="tab-overview" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-revenue"><i class="fas fa-rupee-sign"></i></div>
+                        <div class="stat-details">
+                            <h3>Total Revenue</h3>
+                            <span id="stat-revenue">₹0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-orders"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-details">
+                            <h3>Total Orders</h3>
+                            <span id="stat-orders-count">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-reservations"><i class="fas fa-chair"></i></div>
+                        <div class="stat-details">
+                            <h3>Table Reservations</h3>
+                            <span id="stat-res-count">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-dishes"><i class="fas fa-hamburger"></i></div>
+                        <div class="stat-details">
+                            <h3>Menu Items</h3>
+                            <span id="stat-dishes-count">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="grid-card">
+                        <div class="card-header">
+                            <h3>Recent Orders</h3>
+                            <a href="javascript:void(0)" class="view-all-link" data-goto="orders">View All</a>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Customer</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-orders-list">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="card-header">
+                            <h3>Recent Reservations</h3>
+                            <a href="javascript:void(0)" class="view-all-link" data-goto="reservations">View All</a>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Guests</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-res-list">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-menu-manager" class="tab-content">
+                <div class="action-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="menu-search-input" placeholder="Search menu dishes...">
+                    </div>
+                    <button class="btn btn-add" id="btn-add-dish-modal"><i class="fas fa-plus"></i> Add New
+                        Dish</button>
+                </div>
+
+                <div class="grid-card">
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Dish Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-menu-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-orders" class="tab-content">
+                <div class="grid-card">
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date/Time</th>
+                                    <th>Customer Details</th>
+                                    <th>Dishes Ordered</th>
+                                    <th>Total Amount</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-orders-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-reservations" class="tab-content">
+                <div class="grid-card">
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Reservation ID</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Customer Name</th>
+                                    <th>Phone / Email</th>
+                                    <th>Guests</th>
+                                    <th>Special Message</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-reservations-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="dish-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Dish</h3>
+                <button class="close-modal" id="close-dish-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="dish-form">
+                    <input type="hidden" id="edit-dish-index">
+                    <div class="form-group">
+                        <label for="dish-name">Dish Name *</label>
+                        <input type="text" id="dish-name" required placeholder="e.g. Garlic Naan">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dish-category">Category *</label>
+                            <select id="dish-category" required>
+                                <option value="starters">Starters</option>
+                                <option value="main">Main Course</option>
+                                <option value="breads">Breads</option>
+                                <option value="desserts">Desserts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dish-type">Type *</label>
+                            <select id="dish-type" required>
+                                <option value="veg">Veg</option>
+                                <option value="nonveg">Non-Veg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dish-price">Price (INR) *</label>
+                        <input type="number" id="dish-price" min="0" required placeholder="e.g. 150">
+                    </div>
+                    <div class="form-group">
+                        <label for="dish-image">Image URL</label>
+                        <input type="url" id="dish-image" placeholder="Leave empty for generic food thumbnail">
+                    </div>
+                    <div class="form-group">
+                        <label for="dish-desc">Description</label>
+                        <textarea id="dish-desc" rows="3"
+                            placeholder="Provide a brief explanation of the dish details..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-add" style="width:100%; margin-top: 10px;"
+                        id="btn-dish-submit">Save Dish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

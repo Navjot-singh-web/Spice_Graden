@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+     <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+
+    <div class="form-container">
+   <div class="form-toggle">
+    <button type="button" id="loginBtn" class="active">Login</button>
+    <button type="button" id="registerBtn">Register</button>
+</div>
+
+  
+    <form id="loginForm" class="form active">
+        <h2>Login</h2>
+        <label for="loginUserID">User ID :</label>
+        <input type="email" id="loginUserID" placeholder="Enter Your Registered Email Id" required>
+        <label for="loginPassword">Password :</label>
+        <input type="password" id="loginPassword" placeholder="Enter Your Password" required>
+        <button type="submit">Submit</button>
+        <p id="loginError"></p>
+    </form>
+  
+
+    
+     <form id="registerForm" class="form">
+        <h2>Register</h2>
+        <label for="regUserName">Name :</label>
+        <input type="text" id="regUserName" placeholder="Enter Your Full Name" required>
+
+        <label for="regUserEmail">E-Mail ID :</label>
+        <input type="email" id="regUserEmail" placeholder="Enter Your Email ID" required>
+
+        <label for="regMobileNo">Mobile Number :</label>
+        <div class="phone-group">
+            <select id="countryCode" required>
+                  <option value="+91">+91 (India)</option>
+                  <option value="+1">+1 (USA)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+61">+61 (Australia)</option>
+                  <option value="+81">+81 (Japan)</option>
+        </select>
+        <input type="tel" id="regMobileNo" placeholder="Enter mobile number" required>
+        </div>
+
+        <label for="regPassword">Password :</label>
+        <input type="password" id="regPassword" placeholder="Enter Your Password" required>
+
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+        <p id="registerError"></p>
+        </form>
+        </div>
+
+<script src="login.js"></script>
+</body>
+</html>
